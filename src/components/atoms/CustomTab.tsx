@@ -6,7 +6,7 @@ const CustomTab: React.FC<ICustomTabProps> = (props) => {
   return (
     <div
       role="tablist"
-      className="tabs tabs-boxed flex md:flex-row flex-col items-center justify-center gap-2 mb-4"
+      className="tabs tabs-boxed flex md:flex-row flex-col items-center justify-center gap-4 mb-4"
     >
       {tabList?.map((tab) => (
         <a

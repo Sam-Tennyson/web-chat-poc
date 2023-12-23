@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --color-primary: #0a102d;
+  --color-secondary: #9561e2;
+  --color-success: #38a169;
+  --color-warning: #e37400;
+  --color-danger: #e3342f;
+  /* Add more color variables as needed */
+
+  --color-banner-from: #c0222200;
+  --color-banner-to: #0a102d;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #d2d2d2;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-family: 'Inter-Regular', sans-serif;
+  position: relative;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
