@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // components
 import CustomTab from "../components/atoms/CustomTab";
@@ -9,6 +9,8 @@ import QRComponent from "../components/molecules/QRComponent";
 
 // constants
 import { STRINGS, TAB_OPTIONS } from "../shared/constants";
+import CustomModal from "../components/atoms/CustomModal";
+import { openModal } from "../shared/utilies";
 
 const Home = () => {
   const [activeTab, setActiveTab] = useState<any>(TAB_OPTIONS?.[0]);
@@ -38,8 +40,17 @@ const Home = () => {
         return <div>Coming Soon ...</div>;
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      openModal("test");
+    }, 3000);
+  }, []);
   return (
     <>
+      <CustomModal id="test">
+        <h3>jkjkjkj</h3>
+      </CustomModal>
       <CustomTab
         tabList={TAB_OPTIONS}
         activeTab={activeTab}
