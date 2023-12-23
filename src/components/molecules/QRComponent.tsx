@@ -21,7 +21,7 @@ const QRComponent: React.FC = () => {
             <button className="btn btn-info w-28">Send</button>
           </div>
         </div>
-        <ReactQRCode value="https://supporthelpernews.org/" size={256} />
+        <ReactQRCode value="https://softwarehelpernews.com/" size={256} />
       </div>
     </>
   );
