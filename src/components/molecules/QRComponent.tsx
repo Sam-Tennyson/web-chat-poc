@@ -1,16 +1,23 @@
+// libs
 import React, { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+
+// components
 import ReactQRCode from "../atoms/ReactQRCode";
 import InputComponent from "../atoms/InputComponent";
-import { useMutation } from "@tanstack/react-query";
+import ActionButton from "../atoms/ActionButton";
+
+// services
 import { createSession } from "../../services/sessions";
 
 const QRComponent: React.FC = () => {
   // Mutations
-  const { mutate } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: createSession,
     onSuccess: async () => {
       // Invalidate and refetch
       console.log("success");
+      setPhoneNumber("");
     },
   });
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -36,9 +43,12 @@ const QRComponent: React.FC = () => {
             />
           </div>
           <div>
-            <button className="btn btn-info w-28" onClick={handleSend}>
-              Send
-            </button>
+            <ActionButton
+              text={"Send"}
+              isLoading={isPending}
+              onclick={handleSend}
+              customClass="btn btn-info"
+            />
           </div>
         </div>
         <ReactQRCode value="https://softwarehelpernews.com/" size={256} />
